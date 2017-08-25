@@ -11,7 +11,18 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-  res.status(201).json(req.body);
+//    let response = req.body.name + " lives in " + req.body.city
+res.status(201).json(req.body);
+
+});
+
+app.get('/test/:who', (req, res) => {
+  res.status(200).send(req.params.who + " made a request")
+});
+
+app.get('/stuff', (req, res) => {
+  res.status(200).json(req.query);
+//  res.status(200).send(req.query.who + " made a request")
 });
 
 app.listen(port, () => {
